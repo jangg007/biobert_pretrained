@@ -24,7 +24,7 @@ if user_input1 and user_input2 and button:
     answer_start_index = outputs.start_logits.detach().argmax()
     answer_end_index = outputs.end_logits.detach().argmax()
 
-    predict_answer_tokens = inputs.input_ids[0, answer_start_index : answer_end_index + 1]
+    predict_answer_tokens = test_sample.input_ids[0, answer_start_index : answer_end_index + 1]
     ans = tokenizer.decode(predict_answer_tokens)
 
     st.write("Answer : ",ans)
@@ -38,4 +38,5 @@ if user_input1 and user_input2 and button:
 # git add .\biobert_app.py .\requirements.txt
 # git commit -m 'first commit'
 # git branch -M main
+# git remote add origin https://github.com/jangg007/biobert_pretrained.git
 # git push -u origin main
